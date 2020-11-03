@@ -29,14 +29,13 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
             <li className="todo"
                 key={id}
                 style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
-                // checked={checked}
-                // onCheck={onCheck}
+                
             >
                 <input type="checkbox" onClick={markAsChecked}/>
                 <div className="taskText">
                     {todo.text}
                     <div className="deleteTask" onClick={onRemove}>
-                        <img src='https://img.icons8.com/android/12/000000/trash.png' alt="error"/>
+                        <img src='https://img.icons8.com/android/12/000000/trash.png' alt="delete"/>
                     </div>
                 </div>
             </li>

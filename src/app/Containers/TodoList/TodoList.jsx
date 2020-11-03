@@ -29,7 +29,7 @@ import {text} from "@fortawesome/fontawesome-svg-core";
  * todo implement HOC for display the list of the todos and control panel and input for add new todos
  */
 
-
+//sort ToDo
 const TodoList = (props) => {
     const FILTER_MAP = {
         All: () => true,
@@ -43,7 +43,7 @@ const TodoList = (props) => {
     useEffect(()  => {
         const todoList = todos.filter(FILTER_MAP['All'])
         setState({items: todoList, filter: 'All'})
-        console.log('LOOG fsdfsdfsdfs');
+        
     },[todos])
 
     useEffect(() => {
@@ -55,9 +55,9 @@ const TodoList = (props) => {
         setState({items: todoList, filter: name})
     };
 
-    const checkAllTodos = () => {
-        console.log(todos)
-    }
+    // const checkAllTodos = () => {
+    //     console.log(todos)
+    // }
     return (
         <React.Fragment>
             <div className="todo-list">
