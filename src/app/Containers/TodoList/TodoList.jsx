@@ -52,7 +52,8 @@ const TodoList = (props) => {
 
     const btnClick = name => () => {
         const todoList = todos.filter(FILTER_MAP[name])
-        setState({items: todoList, filter: name})
+        setState({items: todoList, filter: name,})
+                
     };
 
     // const checkAllTodos = () => {
@@ -89,15 +90,19 @@ const TodoList = (props) => {
                             {todos.length} tasks left
                         </li>
                         <li>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             {controlBadges.map((name) => (
-                                <Button
+                                <label class="btn btn-secondary btn-light">
+                                    
+                                <input type="radio" className="options" autocomplete="off"
                                     key={name}
                                     onClick={btnClick(name)}
                                     name={name}
                                     className="filterButton"
-                                >
+                                    />
                                     {name}
-                                </Button>))}
+                                    </label>))}
+                                </div>
                         </li>
                         <li
                             className="clearTasksButton"
@@ -111,6 +116,8 @@ const TodoList = (props) => {
         </React.Fragment>
     )
 }
+
+
 
 const selectTodos = state => state.todos
 
