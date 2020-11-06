@@ -59,6 +59,8 @@ const TodoList = (props) => {
     // const checkAllTodos = () => {
     //     console.log(todos)
     // }
+
+    let kol= [];
     return (
         <React.Fragment>
             <div className="todo-list">
@@ -88,9 +90,13 @@ const TodoList = (props) => {
                             className="taskCount"
                             onClick={checkAll}
                         >
-                            {todos.length} 
-                            {console.log("todos.completed: ",)}
+                            {/* {todos.length}  */}
                             
+
+                            {todos.map(function ss(el) {if (el.completed == true) {kol.push(el)} })}
+
+                            {console.log("kol ", kol.length)}
+                            {todos.length - kol.length+" "}
                             tasks left
                         </li>
                         <li>
