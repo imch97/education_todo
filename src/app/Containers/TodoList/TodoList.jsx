@@ -95,7 +95,7 @@ const TodoList = (props) => {
 
                             {todos.map(function ss(el) {if (el.completed == true) {kol.push(el)} })}
 
-                            {console.log("kol ", kol.length)}
+                            {/* {console.log("kol ", kol.length)} */}
                             {todos.length - kol.length+" "}
                             tasks left
                         </li>

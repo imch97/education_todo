@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import {actions, initialState, todoSlice} from "../../Containers/TodoList/todoSlice";
 import {useState} from 'react';
 import { connect } from 'react-redux'
@@ -30,8 +30,10 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
                 key={id}
                 style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
                 
-            >
-                <input type="checkbox" onClick={markAsChecked} />
+            >   
+                <input type="checkbox" onClick={markAsChecked} checked={todo.completed}/>
+                {console.log("check todo ",todo.completed)}
+                
                 {/* <label className = "checkbox"></label> */}
                 <div className="taskText">
                     {todo.text}
