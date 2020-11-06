@@ -50,11 +50,11 @@ const TodoList = (props) => {
         localStorage.setItem('todos', JSON.stringify(todos))
     }, [todos])
 
-    const btnClick = name => () => {
+    const btnClick = name => () => {        
         const todoList = todos.filter(FILTER_MAP[name])
-        setState({items: todoList, filter: name,})
-                
+        setState({items: todoList, filter: name,})  
     };
+    
 
     // const checkAllTodos = () => {
     //     console.log(todos)
@@ -90,11 +90,10 @@ const TodoList = (props) => {
                             {todos.length} tasks left
                         </li>
                         <li>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <div className="btn-group btn-group-toggle" data-toggle="buttons">
                             {controlBadges.map((name) => (
-                                <label class="btn btn-secondary btn-light">
-                                    
-                                <input type="radio" className="options" autocomplete="off"
+                                <label className={  name === state.filter ? "btn btn-secondary btn-light active" :'btn btn-secondary btn-light' }>                                    
+                                <input type="radio" className="options" autoComplete="off"
                                     key={name}
                                     onClick={btnClick(name)}
                                     name={name}
