@@ -81,13 +81,17 @@ const TodoList = (props) => {
                         />
                         ))}
                 </div>
-                <div className="footerSection">
+                {todos.length != 0  &&
+                <div className="footerSection" >
                     <ul className="footer">
                         <li
                             className="taskCount"
                             onClick={checkAll}
                         >
-                            {todos.length} tasks left
+                            {todos.length} 
+                            {console.log("todos.completed: ",)}
+                            
+                            tasks left
                         </li>
                         <li>
                         <div className="btn-group btn-group-toggle" data-toggle="buttons">
@@ -97,7 +101,7 @@ const TodoList = (props) => {
                                     key={name}
                                     onClick={btnClick(name)}
                                     name={name}
-                                    className="filterButton"
+                                    //className="filterButton"
                                     />
                                     {name}
                                     </label>))}
@@ -111,6 +115,7 @@ const TodoList = (props) => {
                         </li>
                     </ul>
                 </div>
+}  
             </div>
         </React.Fragment>
     )
