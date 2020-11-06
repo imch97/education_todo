@@ -28,14 +28,13 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
         <React.Fragment>
             <li className="todo"
                 key={id}
-                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                // style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
                 
             >   
-                <input type="checkbox" onClick={markAsChecked} checked={todo.completed}/>
-                {console.log("check todo ",todo.completed)}
-                
-                {/* <label className = "checkbox"></label> */}
-                <div className="taskText">
+            <input type="checkbox" onClick={markAsChecked} checked={todo.completed}/>
+
+                <label className = "checkbox" onClick={markAsChecked} checked={todo.completed}></label>
+                <div className="taskText" style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
                     {todo.text}
                     <div className="deleteTask" onClick={onRemove}>                        
                         <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
