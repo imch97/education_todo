@@ -102,15 +102,15 @@ const TodoList = (props) => {
                         <li>
                         <div className="btn-group btn-group-toggle" data-toggle="buttons">
                             {controlBadges.map((name) => (
-                                <label className={  name === state.filter ? "btn btn-secondary btn-light active" :'btn btn-secondary btn-light' }>                                    
+                                <button className={  name === state.filter ? " active" :'' } onClick={btnClick(name)}>                                    
                                 <input type="radio" className="options" autoComplete="off"
                                     key={name}
-                                    onClick={btnClick(name)}
+                                    //onClick={btnClick(name)}
                                     name={name}
                                     //className="filterButton"
                                     />
                                     {name}
-                                    </label>))}
+                                    </button>))}
                                 </div>
                         </li>
                         
