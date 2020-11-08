@@ -89,16 +89,27 @@ const TodoList = (props) => {
                             {todos.length} tasks left
                         </li>
                         <li>
-                            {controlBadges.map((name) => (
-                                <Button
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            {controlBadges.map((name) => (                                    
+                                  <label class="btn btn-secondary btn-sm btn-light">
+
+                                <input
                                     key={name}
                                     onClick={btnClick(name)}
                                     name={name}
                                     className="filterButton"
-                                >
+                                    
+                                    type="radio"
+                                    autocomplete="off"                                    
+                                    name="options"
+                                    
+                                />
                                     {name}
-                                </Button>))}
+                                
+                                </label>))}
+                                </div>
                         </li>
+                        
                         <li
                             className="clearTasksButton"
                             onClick={clearCompleted}
