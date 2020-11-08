@@ -50,14 +50,17 @@ const TodoList = (props) => {
         localStorage.setItem('todos', JSON.stringify(todos))
     }, [todos])
 
-    const btnClick = name => () => {
+    const btnClick = name => () => {        
         const todoList = todos.filter(FILTER_MAP[name])
-        setState({items: todoList, filter: name})
+        setState({items: todoList, filter: name,})  
     };
+    
 
     // const checkAllTodos = () => {
     //     console.log(todos)
     // }
+
+    let kol= [];
     return (
         <React.Fragment>
             <div className="todo-list">
@@ -80,33 +83,34 @@ const TodoList = (props) => {
                         />
                         ))}
                 </div>
-                <div className="footerSection">
+                {todos.length != 0  &&
+                <div className="footerSection" >
                     <ul className="footer">
                         <li
                             className="taskCount"
                             onClick={checkAll}
                         >
-                            {todos.length} tasks left
+                            {/* {todos.length}  */}
+                            
+
+                            {todos.map(function ss(el) {if (el.completed == true) {kol.push(el)} })}
+
+                            {/* {console.log("kol ", kol.length)} */}
+                            {todos.length - kol.length+" "}
+                            tasks left
                         </li>
                         <li>
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            {controlBadges.map((name) => (                                    
-                                  <label class="btn btn-secondary btn-sm btn-light">
-
-                                <input
+                        <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                            {controlBadges.map((name) => (
+                                <label className={  name === state.filter ? "btn btn-secondary btn-light active" :'btn btn-secondary btn-light' }>                                    
+                                <input type="radio" className="options" autoComplete="off"
                                     key={name}
                                     onClick={btnClick(name)}
                                     name={name}
-                                    className="filterButton"
-                                    
-                                    type="radio"
-                                    autocomplete="off"                                    
-                                    name="options"
-                                    
-                                />
+                                    //className="filterButton"
+                                    />
                                     {name}
-                                
-                                </label>))}
+                                    </label>))}
                                 </div>
                         </li>
                         
@@ -118,10 +122,13 @@ const TodoList = (props) => {
                         </li>
                     </ul>
                 </div>
+}  
             </div>
         </React.Fragment>
     )
 }
+
+
 
 const selectTodos = state => state.todos
 

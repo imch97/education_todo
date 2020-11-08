@@ -30,8 +30,9 @@ export const todoSlice = createSlice({
       return state.filter(todo => !todo.completed === true)
     },
     checkAll: (state) => {
-      console.log(state.map(todo => !todo.completed === true))
-      return state.map(todo => todo ? {...todo, completed: !todo.completed} : todo)
+      //console.log(state.map(todo => !todo.completed === true))
+      //return state.map(todo => todo ? {...todo, completed: !todo.completed} : todo)
+      return state.map(todo => todo ? {...todo, completed: true} : todo)
     }
   },
 });
