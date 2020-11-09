@@ -76,6 +76,7 @@ const TodoList = (props) => {
                         onRemove={remove}
                     // onRemove={() => remove({id: todo.id, text: todo.text}) }
                         markAsChecked={() => markAsChecked({id: todo.id, completed: todo.completed})}
+                        //markAsChecked={markAsChecked}
                         todo={todo}
                         />
                         ))}
