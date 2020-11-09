@@ -3,7 +3,7 @@ import {actions, initialState, todoSlice} from "../../Containers/TodoList/todoSl
 import {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
 
-const mapDispatch = { addTodo: actions.addTodo }
+
 
 const ToDoInput = ( props ) => {
     const [value, setValue] = useState("");
@@ -29,6 +29,8 @@ const ToDoInput = ( props ) => {
         </form>
     );
 };
+
+const mapDispatch = { addTodo: actions.addTodo }
 
 export default connect(
     null,

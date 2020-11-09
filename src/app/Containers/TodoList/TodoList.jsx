@@ -54,13 +54,13 @@ const TodoList = (props) => {
         const todoList = todos.filter(FILTER_MAP[name])
         setState({items: todoList, filter: name,})  
     };
+
+    let kol= [];     
+    function lostCountToDo (el){
+        if (el.completed == true) {kol.push(el)} 
+    }; 
+
     
-
-    // const checkAllTodos = () => {
-    //     console.log(todos)
-    // }
-
-    let kol= [];
     return (
         <React.Fragment>
             <div className="todo-list">
@@ -73,12 +73,9 @@ const TodoList = (props) => {
                         index={index}
                         key={todo.id}
                         text={todo.text}
-                        onRemove={() => {
-                        remove({id: todo.id, text: todo.text})
-                    }}
-                        markAsChecked={() => {
-                        markAsChecked({id: todo.id, completed: todo.completed})
-                    }}
+                        onRemove={remove}
+                    // onRemove={() => remove({id: todo.id, text: todo.text}) }
+                        markAsChecked={() => markAsChecked({id: todo.id, completed: todo.completed})}
                         todo={todo}
                         />
                         ))}
@@ -89,14 +86,9 @@ const TodoList = (props) => {
                         <li
                             className="taskCount"
                             onClick={checkAll}
-                        >
-                            {/* {todos.length}  */}
-                            
-
-                            {todos.map(function ss(el) {if (el.completed == true) {kol.push(el)} })}
-
-                            {/* {console.log("kol ", kol.length)} */}
-                            {todos.length - kol.length+" "}
+                        >                            
+                            {todos.map(el => lostCountToDo(el))}                            
+                            {`${todos.length - kol.length} `}
                             tasks left
                         </li>
                         <li>
@@ -106,8 +98,7 @@ const TodoList = (props) => {
                                 <input type="radio" className="options" autoComplete="off"
                                     key={name}
                                     onClick={btnClick(name)}
-                                    name={name}
-                                    //className="filterButton"
+                                    name={name}                                    
                                     />
                                     {name}
                                     </label>))}
@@ -142,8 +133,10 @@ TodoList.propTypes = {
 const mapStateToProps = state => ({todos: state.todo})
 const mapDispatchToProps = {
     addTodo: actions.addTodo,
-    remove: actions.remove,
-    markAsChecked: actions.markAsChecked,
+    // remove: actions.remove,
+    remove: (todo) => actions.remove({id: todo.id, text: todo.text}),
+    markAsChecked: (todo) => actions.markAsChecked({id: todo.id, completed: todo.completed}),
+
     clearCompleted: actions.clearCompleted,
     checkAll: actions.checkAll
 }
