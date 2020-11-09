@@ -7,8 +7,7 @@
   margin: 0 auto;
   filter: drop-shadow(1px 1px 7px black);
 }
-.footer {
-  
+.footer { 
   margin: 0;
   display: flex;
   list-style: none;
@@ -60,6 +59,8 @@ button {
   overflow-y: auto;
 }
 .footerSection {
+  text-align: right;
+  vertical-align: middle;
   align-content: center;
   height: 50px;
   padding-top: 10px;
@@ -70,4 +71,8 @@ button {
 
 .btn:active {
   text-transform: uppercase;
+}
+
+input[type=radio]{
+  display: none;
 }

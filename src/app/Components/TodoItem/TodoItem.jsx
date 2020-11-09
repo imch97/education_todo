@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+//import checkbox from 'react-bootstrap/checkbox';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import {actions, initialState, todoSlice} from "../../Containers/TodoList/todoSlice";
