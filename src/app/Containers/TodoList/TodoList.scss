@@ -19,10 +19,11 @@
 .clearTasksButton {
   padding-top: 3px;
   font-size: 12px;
+  margin-top: 2px;
   font-family: sans-serif;
   color: gray;
   float: right;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .clearTasksButton:hover{
   cursor: pointer;
@@ -36,6 +37,7 @@
 .taskCount {
   padding-top: 3px;
   font-size: 12px;
+  margin-top: 2px;
   font-family: sans-serif;
   color: gray;
   margin-right: 15px;
@@ -69,8 +71,9 @@ button {
   padding: 10px 0 10px 0;
 }
 
-.btn:active {
-  text-transform: uppercase;
+.active {
+  //text-transform: uppercase;
+  border: 2px solid gray;
 }
 
 input[type=radio]{

@@ -92,7 +92,7 @@ const TodoList = (props) => {
                             tasks left
                         </li>
                         <li>
-                        <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                        {/* <div className="btn-group btn-group-toggle" data-toggle="buttons"> */}
                             {controlBadges.map((name) => (
                                 <button className={  name === state.filter ? " active" :'' } onClick={btnClick(name)}>                                    
                                 <input type="radio" className="options" autoComplete="off"
@@ -102,7 +102,7 @@ const TodoList = (props) => {
                                     />
                                     {name}
                                     </button>))}
-                                </div>
+                                {/* </div> */}
                         </li>
                         
                         <li
